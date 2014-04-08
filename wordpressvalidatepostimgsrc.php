@@ -72,7 +72,7 @@ class WordPressValidatePostImgSrc {
 				yield [
 					'ID' => $resultRow['ID'],
 					'post' => trim($resultRow['post_content']),
-					'GUID' => trim($resultRow['guid']) // note: handy quick find hook in MySQL for browsing
+					'GUID' => trim($resultRow['guid'])
 				];
 
 				$lastSeenPostID = $resultRow['ID'];
