@@ -5,7 +5,7 @@ It's rather down and dirty, but does the job.
 
 ## Requires
 - PHP 5.5
-- [MySQLi](http://php.net/mysqli)
+- [MySQLi](http://php.net/mysqli) with [MySQL native driver](http://php.net/manual/en/book.mysqlnd.php)
 
 ## How it works
 - Opens the `wp_posts` table and queries all published posts for their text content.
