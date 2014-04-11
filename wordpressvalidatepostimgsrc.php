@@ -30,7 +30,7 @@ class WordPressValidatePostImgSrc {
 		// work over source data
 		foreach ($this->postSourceIterator($mySQLi) as $postItem) {
 			// extract image URLs contained in the blog post - if none found no work to do
-			$imageURLList =$this->extractImageURLList($postItem['post']);
+			$imageURLList = $this->extractImageURLList($postItem['post']);
 			if (!$imageURLList) continue;
 
 			// now validate each image URL exists in file system - log error if any images not found
