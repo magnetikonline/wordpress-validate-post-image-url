@@ -55,7 +55,7 @@ $ php wordpressvalidatepostimgsrc.php
 
 If everything works as expected, detected missing images will be written to `LOG_FILE_PATH` for analysis.
 
-## Example error log output
+## Example log output
 
 ```
 http://www.siteurl.com/the-guid-of-my-blog-post
