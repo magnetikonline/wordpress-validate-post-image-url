@@ -10,7 +10,7 @@ It's rather down and dirty, but does the job.
 ## How it works
 - Opens the `wp_posts` table and queries all published posts for their text content.
 - Works over each in turn, using a regular expression to extract all image references that are internal to the blog.
-- Confirms that each image exists on disk under the `wp-content/uploads/` directory (or equivalent depending on WordPress blog configuration) using the [`is_file()`](http://php.net/manual/en/function.is-file.php) function.
+- Confirms that each image exists on disk under the `/wp-content/uploads/` directory (or equivalent depending on WordPress blog configuration) using the [`is_file()`](http://php.net/manual/en/function.is-file.php) function.
 - Any image that does not exist on disk is then logged to an error file.
 
 ## Usage
@@ -35,7 +35,7 @@ Configure the constants at the top of [`wordpressvalidatepostimgsrc.php`](wordpr
 	</tr>
 	<tr>
 		<td>PUBLIC_SITE_UPLOADS_URL</td>
-		<td>Full public URL path to the <code>wp-content/uploads/</code> folder, including trailing forward slash. This is used to construct the regular expression for extracting internal blog post image references.</td>
+		<td>Full public URL path to the <code>/wp-content/uploads/</code> folder, including trailing forward slash. This is used to construct the regular expression for extracting internal blog post image references.</td>
 	</tr>
 	<tr>
 		<td>PATH_TO_UPLOADS</td>
