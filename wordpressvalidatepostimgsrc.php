@@ -16,6 +16,17 @@ class WordPressValidatePostImgSrc {
 
 	public function __construct() {
 
+		// validate settings
+		if (substr(self::PUBLIC_SITE_UPLOADS_URL,-1) != '/') {
+			echo("Error: PUBLIC_SITE_UPLOADS_URL must end with a trailing forward slash\n");
+			exit();
+		}
+
+		if (substr(self::PATH_TO_UPLOADS,-1) != '/') {
+			echo("Error: PATH_TO_UPLOADS must end with a trailing forward slash\n");
+			exit();
+		}
+
 		// connect to database
 		$mySQLi = new mysqli(
 			self::DB_SERVER,
