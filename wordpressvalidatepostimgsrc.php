@@ -45,7 +45,7 @@ class WordPressValidatePostImgSrc {
 			if (!$imageURLList) continue;
 
 			// now validate each image URL exists in file system - log error if any images not found
-			$this->validateImageURLListExists($fhLogFile,$imageURLList,$postItem['GUID']);
+			$this->validateImageURLListExists($fhLogFile,$postItem['ID'],$postItem['GUID'],$imageURLList);
 		}
 
 		// close log file and database connection
@@ -117,7 +117,7 @@ class WordPressValidatePostImgSrc {
 		return [];
 	}
 
-	private function validateImageURLListExists($fh,array $imageURLList,$postGUID) {
+	private function validateImageURLListExists($fh,$postID,$postGUID,array $imageURLList) {
 
 		$publicSiteUploadsURLLength = strlen(self::PUBLIC_SITE_UPLOADS_URL);
 		$missingImageList = [];
@@ -135,7 +135,9 @@ class WordPressValidatePostImgSrc {
 
 		if ($missingImageList) {
 			// missing images found - de-dupe list and write to log file
-			fwrite($fh,$postGUID . "\n");
+			fwrite($fh,'ID: ' . $postID . "\n");
+			fwrite($fh,'URL: ' . $postGUID . "\n");
+
 			foreach (array_unique($missingImageList) as $missingImageItem) {
 				fwrite($fh,"\t" . $missingImageItem . "\n");
 			}
